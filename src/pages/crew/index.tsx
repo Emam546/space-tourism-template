@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import "./style.scss";
 import { configureStore, createSlice } from "@reduxjs/toolkit";
 import { Provider, useDispatch, useSelector } from "react-redux";
 import { data } from "../../data";
 import classNames from "classnames";
-type DataType = typeof data.destinations;
+type DataType = typeof data.crew;
 type StateData = {
     tab: {
         currentTab: 0;
@@ -14,7 +14,7 @@ type StateData = {
 const tab = createSlice({
     initialState: {
         currentTab: 0,
-        data: data.destinations,
+        data: data.crew,
     },
     reducers: {
         setTab(state, action: { payload: number }) {
@@ -45,21 +45,24 @@ function TabsManger() {
                         })}
                         key={i}
                         onClick={() => dispatch(tab.actions.setTab(i))}
-                    >
-                        {name}
-                    </li>
+                    ></li>
                 );
             })}
         </ul>
     );
 }
-function ImagePlanetViewer() {
+function ImageCrewViewer(
+    props: React.DetailedHTMLProps<
+        React.HTMLAttributes<HTMLDivElement>,
+        HTMLDivElement
+    >
+) {
     const data = useSelector<StateData, DataType>((state) => state.tab.data);
     const curTab = useSelector<StateData, number>(
         (state) => state.tab.currentTab
     );
     return (
-        <div className="planet-viewer tw-mx-auto tw-aspect-square tw-max-w-[14rem] lg:tw-max-w-md">
+        <div {...props}>
             {data.map(({ name, images }, i) => {
                 return (
                     <img
@@ -78,35 +81,20 @@ function InfoContent() {
         (state) => state.tab.currentTab
     );
     return (
-        <ul className="info-container ">
-            {data.map(({ name, description, distance, travel }, i) => {
+        <ul className="info-container lg:tw-m-0 lg:tw-max-w-xl">
+            {data.map(({ name, bio, images, role }, i) => {
                 return (
                     <li className={classNames({ active: curTab == i })}>
-                        <div>
+                        <div className="tw-text-center lg:tw-text-start">
+                            <h3 className="tw-uppercase tw-my-4 tw-break-words tw-mix-blend-normal tw-opacity-50">
+                                {role}
+                            </h3>
                             <h2 className="tw-uppercase tw-mb-4 tw-break-words">
                                 {name}
                             </h2>
                             <p className="tw-text-white-purple tw-leading-7">
-                                {description}
+                                {bio}
                             </p>
-                        </div>
-                        <div className="tw-flex tw-uppercase tw-flex-col sm:tw-flex-row tw-gap-8 tw-justify-around lg:tw-justify-start tw-tracking-[0.13rem] tw-items-center tw-mt-10">
-                            <div>
-                                <p className="tw-text-white-purple tw-text-base">
-                                    AVG. DISTANCE
-                                </p>
-                                <p className="tw-uppercase tw-text-4xl tw-my-3">
-                                    {distance}
-                                </p>
-                            </div>
-                            <div>
-                                <p className="tw-text-white-purple tw-text-base">
-                                    Est. travel time
-                                </p>
-                                <p className="tw-uppercase tw-text-4xl tw-my-3">
-                                    {travel}
-                                </p>
-                            </div>
                         </div>
                     </li>
                 );
@@ -114,26 +102,26 @@ function InfoContent() {
         </ul>
     );
 }
-export default function Destination() {
+export default function Crew() {
     useEffect(() => {
         const body = document.getElementsByTagName("body")[0];
-        body.className = "destination";
+        body.className = "crew";
     }, []);
     return (
         <Provider store={store}>
-            <div className="destination container tw-mx-auto tw-py-10 tw-flex-1 sm:tw-text-xl tw-flex lg:tw-items-center">
-                <div className="tw-flex-1">
+            <div className="crew container tw-flex-1 sm:tw-text-xl tw-flex lg:tw-items-center">
+                <div className="tw-flex-1 tw-relative tw-py-10">
                     <h4 className="tw-uppercase tw-tracking-[0.16rem] tw-text-center sm:tw-text-start tw-text-white tw-mb-10 lg:tw-mb-20">
-                        <span className="tw-opacity-50 tw-font-bold tw-mix-blend-normal tw-mr-3">
-                            01
+                        <span className="tw-opacity-50  tw-font-bold tw-mix-blend-normal tw-mr-3">
+                            02
                         </span>
-                        Pick your destination
+                        Meet your crew
                     </h4>
-                    <div className="tw-flex tw-flex-col lg:tw-flex-row tw-justify-between tw-gap-10 lg:tw-gap-16">
-                        <div className="tw-flex-1">
-                            <ImagePlanetViewer />
+                    <div className="tw-flex tw-flex-col lg:tw-flex-row-reverse tw-justify-between tw-gap-5 lg:tw-gap-16">
+                        <div className="tw-self-stretch lg:tw-flex-1 sm:tw-absolute tw-w-full tw-bottom-0 lg:tw-static tw-border-b-4 sm:tw-border-0 tw-border-[#383B4B] tw-border-solid ">
+                            <ImageCrewViewer className="crew-viewer tw-mx-auto tw-flex tw-justify-center tw-h-[20rem] sm:tw-h-[28rem]" />
                         </div>
-                        <div>
+                        <div className="sm:tw-flex tw-justify-end tw-flex-col-reverse tw-gap-16">
                             <TabsManger />
                             <InfoContent />
                         </div>

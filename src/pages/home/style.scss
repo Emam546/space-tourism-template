@@ -26,6 +26,7 @@ body.home {
         display: flex;
         justify-content: center;
         align-items: center;
+        color: $black;
         &::after {
             content: "";
             position: absolute;
@@ -41,7 +42,7 @@ body.home {
             border-radius: 50%;
             z-index: -1;
         }
-        &:hover{
+        &:hover {
             color: $black;
         }
         &:hover::after {

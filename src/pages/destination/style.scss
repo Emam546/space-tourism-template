@@ -1,5 +1,4 @@
 @import "../../custom";
-$requiredTime: 0.8s;
 body.destination {
     background-image: url("./assets/destination/background-destination-mobile.jpg");
     @include media-breakpoint-up(sm) {
@@ -52,47 +51,43 @@ div.destination {
         }
     }
     .planet-viewer {
-        @apply tw-text-center tw-my-[2em] tw-mx-auto tw-aspect-square tw-w-[14em] lg:tw-text-2xl;
         position: relative;
         img {
             width: 100%;
             opacity: 0%;
             transform: translateY(rem(30));
             transition: $requiredTime;
+            position: absolute;
+            bottom: 0;
             &.active {
                 opacity: 100%;
                 transform: translateY(0);
+                position: relative;
+                z-index: 1;
             }
-            position: absolute;
         }
     }
-    overflow-x: hidden;
     .info-container {
         @apply tw-my-10 lg:tw-m-0 lg:tw-max-w-xl text-center lg:tw-text-start;
-        height: fit-content;
         position: relative;
+        overflow: hidden;
         li {
             @apply tw-translate-y-14 lg:tw-translate-x-14 lg:tw-translate-y-0;
             display: flex;
             flex-direction: column;
-            overflow: auto;
             @include media-breakpoint-up(lg) {
-                flex-direction: column;
                 gap: rem(20);
             }
             opacity: 0%;
-            // transform: translateX(rem(50));
             transition: $requiredTime;
-            position: relative;
+            position: absolute;
             left: 0;
             top: 0;
             &.active {
                 opacity: 100%;
                 transform: translateX(0) translateY(0);
                 z-index: 1;
-            }
-            &:not(.active) {
-                position: absolute;
+                position: relative;
             }
         }
     }
