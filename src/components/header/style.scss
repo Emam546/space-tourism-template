@@ -11,7 +11,6 @@
             // align-items: stretch;
             .nav-item {
                 a {
-                    @apply tw-px-2 md:tw-mx-3 tw-py-6;
                     display: flex;
                     align-items: center;
                     position: relative;
@@ -25,7 +24,35 @@
                         counter-increment: counter-section;
                         font-weight: 700;
                     }
+                    @include media-breakpoint-down(md) {
+                        @apply tw-px-2 tw-py-3 tw-my-3;
+                        &::after {
+                            content: "";
+                            position: absolute;
+                            right: 0;
+                            top: 50%;
+                            width: rem(3);
+                            height: 100%;
+                            opacity: 0;
+                            background-color: $white;
+                            transition: 1s;
+                            transform: translateY(-50%);
+                        }
+                        &.active,
+                        &:hover {
+                            &::after {
+                                opacity: 1;
+                            }
+                        }
+                        &:not(.active):hover {
+                            &::after {
+                                mix-blend-mode: normal;
+                                opacity: 0.5;
+                            }
+                        }
+                    }
                     @include media-breakpoint-up(md) {
+                        @apply tw-px-2 tw-py-6 tw-mx-3;
                         &::after {
                             content: "";
                             position: absolute;

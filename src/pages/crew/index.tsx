@@ -118,10 +118,10 @@ export default function Crew() {
                         Meet your crew
                     </h4>
                     <div className="tw-flex tw-flex-col lg:tw-flex-row-reverse tw-justify-between tw-gap-5 lg:tw-gap-16">
-                        <div className="tw-self-stretch lg:tw-flex-1 sm:tw-absolute tw-w-full tw-bottom-0 lg:tw-static tw-border-b-4 sm:tw-border-0 tw-border-[#383B4B] tw-border-solid ">
+                        <div className="tw-self-stretch lg:tw-flex-1 sm:tw-absolute tw-w-full tw-bottom-0 lg:tw-static tw-border-b-4 sm:tw-border-0 tw-border-[#383B4B] tw-border-solid start-anim-top">
                             <ImageCrewViewer className="crew-viewer tw-mx-auto tw-flex tw-justify-center tw-h-[20rem] sm:tw-h-[28rem]" />
                         </div>
-                        <div className="sm:tw-flex tw-justify-end tw-flex-col-reverse tw-gap-16">
+                        <div className="sm:tw-flex tw-justify-end tw-flex-col-reverse tw-gap-16 ">
                             <TabsManger />
                             <InfoContent />
                         </div>

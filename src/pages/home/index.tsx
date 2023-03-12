@@ -7,7 +7,7 @@ export default function Home() {
     }, []);
     return (
         <div className="home container tw-py-20 tw-flex-1 tw-flex tw-flex-col lg:tw-flex-row tw-items-center tw-justify-between">
-            <div className="tw-text-white-purple tw-text-center lg:tw-text-start lg:tw-max-w-md">
+            <div className="tw-text-white-purple tw-text-center lg:tw-text-start lg:tw-max-w-md start-anim-left">
                 <p className="tw-text-xl lg:tw-text-3xl">
                     SO, YOU WANT TO TRAVEL TO
                 </p>
@@ -20,7 +20,7 @@ export default function Home() {
                 </p>
             </div>
             <a
-                className="explore-button"
+                className="explore-button start-anim-top"
                 href="#"
             >
                 Explore

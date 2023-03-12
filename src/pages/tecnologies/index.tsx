@@ -139,13 +139,13 @@ export default function Technology() {
                         space lunch 101
                     </h4>
                     <div className="tw-flex tw-flex-col xl:tw-flex-row-reverse tw-justify-between tw-flex-1 tw-gap-10 lg:tw-gap-16">
-                        <div className="lg:tw-hidden">
+                        <div className="lg:tw-hidden start-anim-top">
                             <ImageTecViewerLandScape className="land-viewer tw-mx-auto tw-flex tw-justify-center" />
                         </div>
-                        <div className="tw-hidden lg:tw-block tw-absolute tw-right-0 lg:tw-translate-y-[-25%] lg:tw-w-[22rem] xl:tw-w-[30rem] xl:tw-static">
+                        <div className="tw-hidden lg:tw-block tw-absolute tw-right-0 lg:tw-translate-y-[-25%] lg:tw-w-[22rem] xl:tw-w-[30rem] xl:tw-static start-anim-top">
                             <ImageTecViewerPortScape className="land-viewer tw-mx-auto tw-flex tw-justify-center " />
                         </div>
-                        <div className="tw-flex tw-flex-col  tw-gap-3 lg:tw-flex-row lg:tw-gap-16 lg:tw-max-w-xl">
+                        <div className="tw-flex tw-flex-col  tw-gap-3 lg:tw-flex-row lg:tw-gap-16 lg:tw-max-w-xl start-anim-left">
                             <TabsManger />
                             <InfoContent />
                         </div>

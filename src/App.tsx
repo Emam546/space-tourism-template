@@ -9,7 +9,7 @@ import Technology from './pages/tecnologies';
 function App() {
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename='/space-tourism-template/'>
       <Routes>
         <Route path='/' element={<SharedLayOut />}>
             <Route path="/" element={<Home />} />

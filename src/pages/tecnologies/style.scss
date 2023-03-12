@@ -88,6 +88,10 @@ div.technology {
                 background-color: $white;
                 color: $black-main;
             }
+            &:not(.active):hover{
+                color: $black-main;
+                background-color: rgba($white, 0.5) ;
+            }
         }
     }
     .info-container {

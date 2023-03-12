@@ -61,3 +61,33 @@ body {
         flex-direction: column;
     }
 }
+.start-anim-left{
+    animation-name: animation-left;
+    animation-duration: 2s;
+}
+
+@keyframes animation-left{
+    0%{
+        transform: translateX(rem(20));
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(rem(0));
+        opacity: 1;
+    }
+}
+.start-anim-top{
+    animation-name: animation-top;
+    animation-duration: 2s;
+}
+
+@keyframes animation-top{
+    0%{
+        transform: translateY(rem(20));
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(rem(0));
+        opacity: 1;
+    }
+}

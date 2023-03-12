@@ -130,10 +130,10 @@ export default function Destination() {
                         Pick your destination
                     </h4>
                     <div className="tw-flex tw-flex-col lg:tw-flex-row tw-justify-between tw-gap-10 lg:tw-gap-16">
-                        <div className="tw-flex-1">
+                        <div className="tw-flex-1 start-anim-top">
                             <ImagePlanetViewer />
                         </div>
-                        <div>
+                        <div className="start-anim-left">
                             <TabsManger />
                             <InfoContent />
                         </div>
